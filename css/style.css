@@ -14,7 +14,11 @@ div.square{
     width: calc(100% / 10) ;
     height: calc(100% / 10) ;
     border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 div.square.active{
  background-color: lightskyblue;
 }

@@ -55,18 +55,25 @@ function generationGameLevel() {
 
     //*CICLO PER TUTTI GLI ELEMENTI CHE VOGLIO CREARE
     for (let i = 1; i <= cellNumber; i++) {
-        createGridSquare(i);
-        console.log(createGridSquare(i) + i);
+        let cell = createGridSquare(i, cellForRow);
+        console.log(createGridSquare(i, cellForRow) + i);
+
+        document.getElementById("grid").appendChild(cell);
+        console.log(cell);
+
     }
 
 };
 
 // Arrow function che restituisce un div di square sotto forma di elemento del DOM
-const createGridSquare = (number) => {
+function createGridSquare(number, cellForRow) {
     const currentElement = document.createElement("div");
     // inseriamo tutto il necessario per ogni square
 
     currentElement.classList.add("square");
+    currentElement.style.width = `calc(100% / ${cellForRow} )`;
+    currentElement.style.height = currentElement.style.width;
+    currentElement.innerHTML = `<span>${number}</span>`;
     return currentElement;
 };
 
