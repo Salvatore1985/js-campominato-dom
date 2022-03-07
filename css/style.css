@@ -1,9 +1,12 @@
 
 main{
-padding: 100px;
+padding: 3rem;
     background-color: RGB(127,255,212);
 }
 
+footer{
+   height: 30px;
+}
 div#grid{
 height: 400px;
 width: 400px;

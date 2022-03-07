@@ -46,6 +46,7 @@ function generationGameLevel() {
     //*CREO UNO SWICH PER DEFINIRE IL VALORE PER OGNI LIVELLO
     let cellForRow;
     let cellNumber;
+    let score = 0;
     switch (levelElement) {
         case "level-easy":
             cellNumber = 100;
@@ -79,9 +80,14 @@ function generationGameLevel() {
             //!CONVALIDO SE I NUMERI DELLE BOMBE SONO NELLE CELLE CLICCATE
             if (!bombs.includes(i)) {
                 cell.classList.add("active");
+                score++
+                writeInElementById("result", `Il tuo punteggio è ${score}`);
 
             } else {
                 cell.classList.add("red");
+                writeInElementById("result", `Mi dispiace il tuo punteggio è ${score}`);
+
+
             }
         });
 
@@ -144,6 +150,15 @@ function generateBombs(bombs, numberOfCells) {
     }
 
     return numberBombs
+
+}
+/**
+ * Funzione che scrive in un elemento del DOM preso tramide ID e sovrascivo ciò che è presente
+ * @param {*} elementId 
+ * @param {*} stringToWrite 
+ */
+function writeInElementById(elementId, stringToWrite) {
+    document.getElementById(elementId).innerHTML = stringToWrite;
 
 }
 
