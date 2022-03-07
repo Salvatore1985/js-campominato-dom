@@ -22,7 +22,7 @@ div.square{
 div.square.active{
  background-color: lightskyblue;
 }
-div.square.medium{
+/* div.square.medium{
     width: calc(100% /9) ;
     height: calc(100% /9) ;
     border: 1px solid black;
@@ -31,7 +31,7 @@ div.square.hard{
     width: calc(100% /7) ;
     height: calc(100% /7) ;
     border: 1px solid black;
-}
+} */
 
 
 main{
