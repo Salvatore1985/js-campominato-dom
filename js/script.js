@@ -7,40 +7,17 @@ con difficoltà 2 => tra 1 e 81
 con difficoltà 3 => tra 1 e 49
 Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro.
  */
-//*RECUPERO L'ELEMENTO DAL DOM
-const levelElement = document.getElementById("level");
-const btnLevelElement = document.getElementById("btn-level");
-const gridElement = document.getElementById("grid");
+
+
 
 
 //*LEGO UN EVENTO AL CLICK DEL BTN-LEVEL
 
-btnLevelElement.addEventListener("click", function () {
-    /* Resetto l'HTML  */
-    gridElement.innerHTML = "";
-    selectValue(levelElement);
-    console.log(selectValue(levelElement));
+document.getElementById("btn-level").addEventListener("click", function () {
 
-    let level = 100;
-    for (let i = 1; i <= level; i++) {
-        const currentSquare = createGridSquare();
-        if (selectValue(levelElement) === "level-medium") {
-            level = 81;
-            currentSquare.classList.add("medium");
+    generationGameLevel()
 
-        } else if (selectValue(levelElement) === "level-hard") {
-            level = 49;
-            currentSquare.classList.add("hard");
-        }
 
-        currentSquare.addEventListener("click", function () {
-            currentSquare.classList.add("active");
-
-        });
-
-        gridElement.appendChild(currentSquare);
-
-    }
 
 });
 
@@ -48,13 +25,58 @@ btnLevelElement.addEventListener("click", function () {
 /********FUNCTION *********/
 
 // Arrow function che restituisce un div di square sotto forma di elemento del DOM
-const createGridSquare = () => {
+function generationGameLevel() {
+    /* Resetto l'HTML  */
+    document.getElementById("grid").innerHTML = "";
+
+    //*RECUPERO L'ELEMENTO DAL DOM
+    /**Recupero il valore del livello */
+    const levelElement = document.getElementById("level").value;
+    console.log(levelElement);
+
+    //*CREO UNO SWICH PER DEFINIRE IL VALORE PER OGNI LIVELLO
+    let cellForRow;
+    let cellNumber;
+    switch (levelElement) {
+        case "level-easy":
+            cellNumber = 100;
+            break;
+        case "level-medium":
+            cellNumber = 81;
+            break;
+        case "level-hard":
+            cellNumber = 49;
+            break;
+    }
+
+    //*CALCOLO LA RADICE QUADRATA DELLA VARIABILE "cellForRow"
+    cellForRow = Math.sqrt(cellNumber);
+    console.log("La radice quadrata di " + cellNumber + " é " + cellForRow);
+
+    //*CICLO PER TUTTI GLI ELEMENTI CHE VOGLIO CREARE
+    for (let i = 1; i <= cellNumber; i++) {
+        createGridSquare(i);
+        console.log(createGridSquare(i) + i);
+    }
+
+};
+
+// Arrow function che restituisce un div di square sotto forma di elemento del DOM
+const createGridSquare = (number) => {
     const currentElement = document.createElement("div");
     // inseriamo tutto il necessario per ogni square
 
     currentElement.classList.add("square");
     return currentElement;
 };
+
+
+
+
+
+
+
+
 
 // Arrow function che restituisceil varole della select di un elemento del DOM
 const selectValue = (element) => {
