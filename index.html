@@ -16,23 +16,16 @@
 <body>
     <!-- header -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px5">
-                <a class="navbar-brand" href="#"><img src="img/Logo.png" alt="logo boolean"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item fs-2 fw-bold">
-                            <a class="nav-link active" aria-current="page" href="#">Campo Minato</a>
-                        </li>
-                    </ul>
-                    <div class="d-flex align-items-center">
+        <div class="container-fluid">
+            <div class="row justify-content-between align-items-center ">
+                <div class="col-4 d-flex align-items-center justify-content-center">
+                    <a class="navbar-brand" href="#"><img src="img/Logo.png" alt="logo boolean"></a>
+                    <a class="nav-link active fs-1" aria-current="page" href="#">Campo Minato</a>
+                </div>
+                <div class="col-4">
+                    <div class="d-flex align-items-center justify-content-center">
                         <label class="me-2" for="">Difficoltà :</label>
-                        <select name="" class="px-3" id="level">
+                        <select name="" id="level">
                             <option value="level-easy">Facile</option>
                             <option value="level-medium">Medio</option>
                             <option value="level-hard">Difficile</option>
@@ -41,15 +34,17 @@
                     </div>
                 </div>
             </div>
-        </nav>
+
     </header>
     <!-- main -->
     <main>
         <div class="container-fluid">
-            <div class="row mt-5">
-                <div class="offset-3 col-6 ">
-                    <div class="d-flex flex-wrap" id="grid">
-                    </div>
+            <div class="row d-flex justify-content-center">
+                <div class=" col-12 d-flex justify-content-center">
+                    <div class="d-flex flex-wrap" id="grid"></div>
+                </div>
+                <div class=" col-12 d-flex justify-content-center ">
+                    <h3>Per giocare devi selezionare il livello e premere Play</h3>
                 </div>
             </div>
         </div>

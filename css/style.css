@@ -1,5 +1,7 @@
-header{
-    height: 5rem;
+
+main{
+padding: 100px;
+    background-color: RGB(127,255,212);
 }
 
 div#grid{
@@ -8,11 +10,9 @@ width: 400px;
 border: .5px solid black;
 }
 
-
-
 div.square{
-    width: calc(100% / 10) ;
-    height: calc(100% / 10) ;
+    min-width: calc(100% / 10) ;
+    min-height: calc(100% / 10) ;
     border: 1px solid black;
     display: flex;
     align-items: center;
@@ -29,11 +29,3 @@ div.square.red{
    }
    
 
-main{
-    height: calc(100vh- 10rem);
-    background-color: RGB(127,255,212);
-}
-
-footer{
-    height: 5rem;
-}
