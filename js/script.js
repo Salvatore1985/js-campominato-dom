@@ -26,10 +26,7 @@ BONUS:
 //*LEGO UN EVENTO AL CLICK DEL BTN-LEVEL
 
 document.getElementById("btn-level").addEventListener("click", function () {
-
     generationGameLevel()
-
-
 
 });
 
@@ -65,7 +62,12 @@ function generationGameLevel() {
     cellForRow = Math.sqrt(cellNumber);
     console.log("La radice quadrata di " + cellNumber + " é " + cellForRow);
 
+    //*GENERO UNA LISTA CON IOL NUMERO DELLE BOMBE
     const numberBombs = 16;
+    const bombs = generateBombs(numberBombs, cellNumber);
+    console.table(bombs);
+
+
 
     //*CICLO PER TUTTI GLI ELEMENTI CHE VOGLIO CREARE
     for (let i = 1; i <= cellNumber; i++) {
@@ -74,15 +76,19 @@ function generationGameLevel() {
 
         //*  LEGO UN EVENTO AL CLICK DEL DELLA CELLA
         cell.addEventListener("click", function () {
-            cell.classList.add("active");
+            //!CONVALIDO SE I NUMERI DELLE BOMBE SONO NELLE CELLE CLICCATE
+            if (!bombs.includes(i)) {
+                cell.classList.add("active");
+
+            } else {
+                cell.classList.add("red");
+            }
         });
 
         document.getElementById("grid").appendChild(cell);
         /*   console.log(cell); */
 
     }
-    const bombs = generateBombs(numberBombs, cellNumber);
-    console.log(bombs);
 
 };
 
@@ -98,7 +104,6 @@ function createGridSquare(number, cellForRow) {
     currentElement.innerHTML = `<span>${number}</span>`;
     return currentElement;
 };
-
 
 //  function che crea un numero random tra min e max non  incluso in una array
 /**
@@ -130,12 +135,12 @@ function generateUniqueRandomNumber(numsBlackList, min, max) {
  * @param {*} numberOfCells è il numero delle celle che posso inserire nel gioco
  * @returns 
  */
-function generateBombs(boms, numberOfCells) {
+function generateBombs(bombs, numberOfCells) {
     const numberBombs = [];
 
-    for (let i = 0; i > boms; i++) {
+    for (let i = 0; i < bombs; i++) {
 
-        numberBombs(generateUniqueRandomNumber(numberBombs, 1, numberOfCells));
+        numberBombs.push((generateUniqueRandomNumber(numberBombs, 1, numberOfCells)));
     }
 
     return numberBombs

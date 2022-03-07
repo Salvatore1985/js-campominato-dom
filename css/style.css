@@ -23,7 +23,11 @@ div.square.active{
  background-color: lightskyblue;
 }
 
-
+div.square.red{
+    background-color: rgba(255, 0, 0, 0.685);
+    color: white;
+   }
+   
 
 main{
     height: calc(100vh- 10rem);
