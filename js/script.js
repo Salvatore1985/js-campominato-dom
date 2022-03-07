@@ -65,10 +65,12 @@ function generationGameLevel() {
     cellForRow = Math.sqrt(cellNumber);
     console.log("La radice quadrata di " + cellNumber + " é " + cellForRow);
 
+    const numberBombs = 16;
+
     //*CICLO PER TUTTI GLI ELEMENTI CHE VOGLIO CREARE
     for (let i = 1; i <= cellNumber; i++) {
         let cell = createGridSquare(i, cellForRow);
-        console.log(createGridSquare(i, cellForRow) + i);
+        /*   console.log(createGridSquare(i, cellForRow) + i); */
 
         //*  LEGO UN EVENTO AL CLICK DEL DELLA CELLA
         cell.addEventListener("click", function () {
@@ -76,9 +78,11 @@ function generationGameLevel() {
         });
 
         document.getElementById("grid").appendChild(cell);
-        console.log(cell);
+        /*   console.log(cell); */
 
     }
+    const bombs = generateBombs(numberBombs, cellNumber);
+    console.log(bombs);
 
 };
 
