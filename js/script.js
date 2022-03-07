@@ -83,7 +83,7 @@ function generationGameLevel() {
 };
 
 
-// Arrow function che restituisce un div di square sotto forma di elemento del DOM
+//function che restituisce un div di square sotto forma di elemento del DOM
 function createGridSquare(number, cellForRow) {
     const currentElement = document.createElement("div");
     // inseriamo tutto il necessario per ogni square
@@ -94,12 +94,11 @@ function createGridSquare(number, cellForRow) {
     currentElement.innerHTML = `<span>${number}</span>`;
     return currentElement;
 };
-const prova = [5, 6, 8, 9, 10];
-console.log(generateUniqueRandomNumber(prova, 5, 6))
 
-// Arrow function che crea un numero random tra min e max non  incluso in una array
+
+//  function che crea un numero random tra min e max non  incluso in una array
 /**
- * Arrow function che crea un numero random tra min e max non  incluso in una array
+ *  function che crea un numero random tra min e max non  incluso in una array
  * @param {*} numsBlackList è l'array dove non  ci sono i numeri che non possono essere randomizati
  * @param {number} min è il numero con il valore minimo
  * @param {number} max è il numero con il valore massimo
@@ -120,3 +119,22 @@ function generateUniqueRandomNumber(numsBlackList, min, max) {
     return randomInteger;
 
 };
+
+/**
+ * Funzione che mi permette di inserire dentro la mia array di numeri la lista dei numeri delle bombe
+ * @param {*} boms è il numero di bombe che posso inserire nel gioco
+ * @param {*} numberOfCells è il numero delle celle che posso inserire nel gioco
+ * @returns 
+ */
+function generateBombs(boms, numberOfCells) {
+    const numberBombs = [];
+
+    for (let i = 0; i > boms; i++) {
+
+        numberBombs(generateUniqueRandomNumber(numberBombs, 1, numberOfCells));
+    }
+
+    return numberBombs
+
+}
+
