@@ -1,0 +1,40 @@
+header{
+    height: 5rem;
+}
+
+div#grid{
+height: 400px;
+width: 400px;
+border: .5px solid black;
+}
+
+
+
+div.square{
+    width: calc(100% / 10) ;
+    height: calc(100% / 10) ;
+    border: 1px solid black;
+}
+div.square.active{
+ background-color: lightskyblue;
+}
+div.square.medium{
+    width: calc(100% /9) ;
+    height: calc(100% /9) ;
+    border: 1px solid black;
+}
+div.square.hard{
+    width: calc(100% /7) ;
+    height: calc(100% /7) ;
+    border: 1px solid black;
+}
+
+
+main{
+    height: calc(100vh- 10rem);
+    background-color: RGB(127,255,212);
+}
+
+footer{
+    height: 5rem;
+}
