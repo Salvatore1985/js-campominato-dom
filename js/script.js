@@ -58,6 +58,11 @@ function generationGameLevel() {
         let cell = createGridSquare(i, cellForRow);
         console.log(createGridSquare(i, cellForRow) + i);
 
+        //*  LEGO UN EVENTO AL CLICK DEL DELLA CELLA
+        cell.addEventListener("click", function () {
+            cell.classList.add("active");
+        });
+
         document.getElementById("grid").appendChild(cell);
         console.log(cell);
 
