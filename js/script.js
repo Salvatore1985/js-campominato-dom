@@ -37,7 +37,7 @@ document.getElementById("btn-level").addEventListener("click", function () {
 function generationGameLevel() {
     /* Resetto l'HTML  */
     document.getElementById("grid").innerHTML = "";
-
+    let gameOver = false;
     //*RECUPERO L'ELEMENTO DAL DOM
     /**Recupero il valore del livello */
     const levelElement = document.getElementById("level").value;
@@ -78,16 +78,18 @@ function generationGameLevel() {
         //*  LEGO UN EVENTO AL CLICK DEL DELLA CELLA
         cell.addEventListener("click", function () {
             //!CONVALIDO SE I NUMERI DELLE BOMBE SONO NELLE CELLE CLICCATE
-            if (!bombs.includes(i)) {
-                cell.classList.add("active");
-                score++
-                writeInElementById("result", `Il tuo punteggio è ${score}`);
+            if (!gameOver) {
 
-            } else {
-                cell.classList.add("red");
-                writeInElementById("result", `Mi dispiace il tuo punteggio è ${score}`);
+                if (!bombs.includes(i)) {
+                    cell.classList.add("active");
+                    score++
+                    writeInElementById("result", `Il tuo punteggio è ${score}`);
 
-
+                } else {
+                    cell.classList.add("red");
+                    writeInElementById("result", `Mi dispiace hai perso!! il tuo punteggio è ${score}`);
+                    gameOver = true;
+                }
             }
         });
 
@@ -161,4 +163,16 @@ function writeInElementById(elementId, stringToWrite) {
     document.getElementById(elementId).innerHTML = stringToWrite;
 
 }
+
+/* function gameOver(myArray, createCel, elementId) {
+    let items = "";
+    for (let i = 0; i < myArray.length; i++) {
+
+        items += myArray[i] + createCel.classList.add("red");
+        console.log(createCel.classList.add("red"));
+        document.getElementById(`${elementId}`).innerHTML = items;
+
+    }
+
+} */
 
