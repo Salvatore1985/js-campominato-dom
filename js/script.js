@@ -64,7 +64,7 @@ function generationGameLevel() {
     console.log("La radice quadrata di " + cellNumber + " é " + cellForRow);
 
     //*GENERO UNA LISTA CON IOL NUMERO DELLE BOMBE
-    const numberBombs = 16;
+    const numberBombs = 2;
     const bombs = generateBombs(numberBombs, cellNumber);
     console.table(bombs);
 
@@ -84,6 +84,7 @@ function generationGameLevel() {
                     cell.classList.add("active");
                     score++
                     writeInElementById("result", `Il tuo punteggio è ${score}`);
+
 
                 } else {
                     cell.classList.add("red");
