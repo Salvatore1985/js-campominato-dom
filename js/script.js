@@ -88,6 +88,7 @@ function generationGameLevel() {
                 } else {
                     cell.classList.add("red");
                     writeInElementById("result", `Mi dispiace hai perso!! il tuo punteggio è ${score}`);
+                    checkAndAddClass('grid', bombs, 'red');
                     gameOver = true;
                 }
             }
@@ -164,15 +165,17 @@ function writeInElementById(elementId, stringToWrite) {
 
 }
 
-/* function gameOver(myArray, createCel, elementId) {
-    let items = "";
-    for (let i = 0; i < myArray.length; i++) {
 
-        items += myArray[i] + createCel.classList.add("red");
-        console.log(createCel.classList.add("red"));
-        document.getElementById(`${elementId}`).innerHTML = items;
+function checkAndAddClass(parentElementId, bombList, classToAdd) {
+    //*SELEZIONO I FIGLI DELL'ELEMENTO CHE HO PRELEVATO DAL DOM(IN QUESTO CASO I FIGLI DI "GRID")
+    const squares = document.getElementById(parentElementId).children;
 
+    // per ogni quadrato presente
+    for (let i = 0; i < squares.length; i++) {
+        // se è anche una bomba
+        if (bombList.includes(parseInt(squares[i].firstChild.innerHTML))) {
+            // la faccio esplodere
+            squares[i].classList.add(classToAdd);
+        }
     }
-
-} */
-
+}
